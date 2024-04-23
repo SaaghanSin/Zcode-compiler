@@ -1,0 +1,58 @@
+dynamic a  # param = [{"a" : VarZcode(None)}]
+number b   # param = [{"a" : VarZcode(None), "b" : VarZcode(numberType)}]
+
+# param = [
+    {"a" : VarZcode(None), "b" : VarZcode(numberType), "foo" : FuncZcode([numberType, stringType], None, True)}
+]
+func foo(number a, string b)
+# param = [
+    {"a" : VarZcode(numberType), "b" : VarZcode(stringType)}
+    {"a" : VarZcode(None), "b" : VarZcode(numberType), "foo" : FuncZcode([numberType, stringType], None, True)}
+]   
+begin
+# param = [
+    {"a" : VarZcode(numberType), "b" : VarZcode(stringType), "c" : VarZcode(numberType)}
+    {"a" : VarZcode(None), "b" : VarZcode(numberType), "foo" : FuncZcode([numberType, stringType], None, True)}
+]   
+    number c
+    begin
+# param = [
+    {"a" : VarZcode(numberType)}
+    {"a" : VarZcode(numberType), "b" : VarZcode(stringType), "c" : VarZcode(numberType)}
+    {"a" : VarZcode(None), "b" : VarZcode(numberType), "foo" : FuncZcode([numberType, stringType], None, True)}
+]   
+        number a
+# param = [
+    {"a" : VarZcode(numberType), "d" : VarZcode(numberType)}
+    {"a" : VarZcode(numberType), "b" : VarZcode(stringType), "c" : VarZcode(numberType)}
+    {"a" : VarZcode(None), "b" : VarZcode(numberType), "foo" : FuncZcode([numberType, stringType], None, True)}
+]   
+        number d
+    end
+# param = [
+    {"a" : VarZcode(numberType), "b" : VarZcode(stringType), "c" : VarZcode(numberType), "d" : VarZcode(numberType)}
+    {"a" : VarZcode(None), "b" : VarZcode(numberType), "foo" : FuncZcode([numberType, stringType], None, True)}
+]   
+    number d
+end
+
+# param = [
+    {"a" : VarZcode(None), "b" : VarZcode(numberType), "foo" : FuncZcode([numberType, stringType], None, True), "main" : FuncZcode([], None, True)}
+]   
+func main()
+# param = [
+    {}
+    {"a" : VarZcode(None), "b" : VarZcode(numberType), "foo" : FuncZcode([numberType, stringType], None, True), "main" : FuncZcode([], None, True)}
+]   
+begin
+    foo()
+# param = [
+    {"a" : VarZcode(numberType)}
+    {"a" : VarZcode(None), "b" : VarZcode(numberType), "foo" : FuncZcode([numberType, stringType], None, True), "main" : FuncZcode([], None, True)}
+]   
+    number a
+end
+
+# param = [
+    {"a" : VarZcode(None), "b" : VarZcode(numberType), "foo" : FuncZcode([numberType, stringType], None, True), "main" : FuncZcode([], None, True)}
+]   
